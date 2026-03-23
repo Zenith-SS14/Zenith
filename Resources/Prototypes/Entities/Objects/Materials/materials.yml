@@ -586,6 +586,7 @@
   description: A webby material.
   suffix: Full
   components:
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
       WebSilk: 100
@@ -771,6 +772,7 @@
     sprite: Objects/Misc/reagent_fillings.rsi
     state: powderpile
     color: darkgray
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
       Gunpowder: 100
