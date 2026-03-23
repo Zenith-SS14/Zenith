@@ -319,9 +319,12 @@
   - type: Item
     size: Ginormous
   - type: Storage
-    maxItemSize: Huge
+    maxItemSize: Ginormous
     grid:
-    - 0,0,19,9
+    - 0,0,15,7
+    blacklist:
+      tags:
+      - Backpack
 
 - type: entity
   parent: ClothingBackpackClown
