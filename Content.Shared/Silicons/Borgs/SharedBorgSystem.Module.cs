@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
@@ -37,21 +38,32 @@ public abstract partial class SharedBorgSystem
     #region BorgModule
     private void OnModuleExamine(Entity<BorgModuleComponent> ent, ref ExaminedEvent args)
     {
-        if (ent.Comp.BorgFitTypes == null)
-            return;
+        if (FormatHashSet(ent.Comp.BorgFitTypes, "borg-module-fit", "types", out var list))
+            args.PushMarkup(list);
 
-        if (ent.Comp.BorgFitTypes.Count == 0)
-            return;
+        if (FormatHashSet(ent.Comp.ModuleTypes, "module-type-incompatible", "types", out list))
+            args.PushMarkup(list);
+    }
 
-        var typeList = new List<string>();
+    private bool FormatHashSet(HashSet<LocId>? hash, string messageId, string listId, [NotNullWhen(true)] out string? formattedList)
+    {
+        formattedList = null;
 
-        foreach (var type in ent.Comp.BorgFitTypes)
+        if (hash == null || hash.Count == 0)
+            return false;
+
+        var entryList = new List<string>();
+
+        foreach (var entry in hash)
         {
-            typeList.Add(Loc.GetString(type));
+            entryList.Add(Loc.GetString(entry));
         }
 
-        var types = ContentLocalizationManager.FormatList(typeList);
-        args.PushMarkup(Loc.GetString("borg-module-fit", ("types", types)));
+        var entries = ContentLocalizationManager.FormatList(entryList);
+
+        formattedList = Loc.GetString(messageId, (listId, entries));
+        return true;
+
     }
 
     private void OnModuleGotInserted(Entity<BorgModuleComponent> module, ref EntGotInsertedIntoContainerMessage args)
