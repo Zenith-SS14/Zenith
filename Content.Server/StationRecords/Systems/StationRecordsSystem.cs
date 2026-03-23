@@ -34,7 +34,7 @@ namespace Content.Server.StationRecords.Systems;
 public sealed class StationRecordsSystem : SharedStationRecordsSystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly StationRecordKeyStorageSystem _keyStorage = default!;
+    [Dependency] private readonly StationRecordInfoStorageSystem _infoStorage = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IdCardSystem _idCard = default!;
 
@@ -66,7 +66,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
 
         if (_idCard.TryFindIdCard(ev.Uid, out var idCard))
         {
-            if (TryComp(idCard, out StationRecordKeyStorageComponent? keyStorage)
+            if (TryComp(idCard, out StationRecordInfoStorageComponent? keyStorage)
                 && keyStorage.Key is {} key)
             {
                 if (TryGetRecord<GeneralStationRecord>(key, out var generalRecord))
@@ -170,6 +170,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         }
 
         SetIdKey(idUid, key);
+        SetIdRecord(idUid, record);
 
         RaiseLocalEvent(new AfterGeneralRecordCreatedEvent(key, record, profile));
     }
@@ -188,7 +189,22 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             keyStorageEntity = id;
         }
 
-        _keyStorage.AssignKey(keyStorageEntity, key);
+        _infoStorage.AssignKey(keyStorageEntity, key);
+    }
+
+    /// <summary>
+    /// Set the station record for an id/pda.
+    /// </summary>
+    public void SetIdRecord(EntityUid? uid, GeneralStationRecord record)
+    {
+        if (uid is not {} idUid)
+            return;
+
+        var keyStorageEntity = idUid;
+        if (TryComp<PdaComponent>(idUid, out var pda) && pda.ContainedId is {} id)
+            keyStorageEntity = id;
+
+        _infoStorage.AssignRecord(keyStorageEntity, record);
     }
 
     /// <summary>
