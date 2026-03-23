@@ -6,6 +6,7 @@ using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Reactions;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Atmos.EntitySystems;
@@ -713,6 +714,16 @@ public partial class AtmosphereSystem
         Debug.Assert(contains == grid.Comp.DeltaPressureEntities.Contains(ent));
 
         return contains;
+    }
+
+    /// <summary>
+    /// Gets the potential energy from overpressure between two gas mixtures.
+    /// </summary>
+    /// <returns>Returns the potential energy of the overpressure in Joules.</returns>
+    [PublicAPI]
+    public float GetOverPressure(EntityUid gasEntity, GasMixture mix1, GasMixture environment, bool explode = false, EntProtoId? debris = null)
+    {
+        return (mix1.Pressure - environment.Pressure) * mix1.Volume;
     }
 
     [ByRefEvent]
