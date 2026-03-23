@@ -326,8 +326,8 @@
       food:
         maxVol: 18
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15
+        - ReagentId: Carbohydrate
+          Quantity: 3 # Unbaked food should have poor nutrient quantity
 
 - type: entity
   parent: FoodBakingBase
@@ -371,10 +371,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 6
+        maxVol: 3
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+        - ReagentId: Carbohydrate
+          Quantity: 1
 
 - type: entity
   parent: FoodBakingBase
@@ -392,13 +392,6 @@
   - type: Construction
     graph: DoughRope
     node: rolled
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
 
 - type: entity
   parent: FoodBakingBase
@@ -435,6 +428,13 @@
   - type: Tag
     tags:
     - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 3
+        reagents:
+        - ReagentId: Carbohydrate
+          Quantity: 1
 
 - type: entity
   parent: FoodBakingBase
@@ -474,6 +474,13 @@
   - type: Tag
     tags:
     - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 3
+        reagents:
+        - ReagentId: Carbohydrate
+          Quantity: 1
 
 - type: entity
   parent: FoodBakingBase
@@ -521,8 +528,8 @@
       food:
         maxVol: 18
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+        - ReagentId: Carbohydrate
+          Quantity: 3
         - ReagentId: Fiber
           Quantity: 10
 
@@ -552,10 +559,10 @@
       food:
         maxVol: 6
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.5
+        - ReagentId: Carbohydrate
+          Quantity: 1
         - ReagentId: Fiber
-          Quantity: 3.5
+          Quantity: 3.3
 
 - type: entity
   parent: FoodBakingBase
@@ -579,8 +586,8 @@
       food:
         maxVol: 6
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.5
+        - ReagentId: Carbohydrate
+          Quantity: 1
         - ReagentId: Fiber
           Quantity: 3.5
   - type: Tag
@@ -653,6 +660,15 @@
   - type: SliceableFood
     count: 3
     slice: FoodCroissantRawCotton
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Carbohydrate
+          Quantity: 3
+        - ReagentId: Fiber
+          Quantity: 10
 
 - type: entity
   parent: FoodBakingBase
@@ -784,6 +800,13 @@
   - type: SliceableFood
     count: 4
     slice: FoodCheeseSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fat
+          Quantity: 15
 
 - type: entity
   parent: FoodBakingBase
@@ -801,7 +824,7 @@
       food:
         maxVol: 6
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 3.75
   - type: Tag
     tags:
@@ -843,7 +866,7 @@
       food:
         maxVol: 6
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 3
         - ReagentId: Vitamin
           Quantity: 0.6
@@ -867,7 +890,7 @@
       food:
         maxVol: 2
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 1
         - ReagentId: Vitamin
           Quantity: 0.2
@@ -895,8 +918,10 @@
         reagents:
         - ReagentId: Protein
           Quantity: 9
-        - ReagentId: Nutriment
-          Quantity: 6
+        - ReagentId: Fat
+          Quantity: 3
+        - ReagentId: Carbohydrate
+          Quantity: 3
   - type: SliceableFood
     count: 3
     slice: FoodTofuSlice
@@ -921,8 +946,10 @@
         reagents:
         - ReagentId: Protein
           Quantity: 3
-        - ReagentId: Nutriment
-          Quantity: 2
+        - ReagentId: Fat
+          Quantity: 1
+        - ReagentId: Carbohydrate
+          Quantity: 1
   - type: Tag
     tags:
     - Slice
@@ -943,7 +970,7 @@
       food:
         maxVol: 8
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Oil
           Quantity: 2
         - ReagentId: GastroToxin
           Quantity: 3
@@ -968,7 +995,7 @@
       food:
         maxVol: 14
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Oil
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
@@ -1001,8 +1028,8 @@
       food:
         maxVol: 4
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
+        - ReagentId: Carbohydrate
+          Quantity: 1
 
 - type: entity
   parent: FoodCroissantRaw
@@ -1021,3 +1048,12 @@
     - cotton
   - type: Sprite
     state: croissant-raw-cotton
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 4
+        reagents:
+        - ReagentId: Carbohydrate
+          Quantity: 1
+        - ReagentId: Fiber
+          Quantity: 3.3

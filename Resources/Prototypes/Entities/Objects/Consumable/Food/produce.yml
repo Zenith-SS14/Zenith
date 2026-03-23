@@ -166,7 +166,7 @@
       food:
         maxVol: 13
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 3
         - ReagentId: Sugar
           Quantity: 5
@@ -346,7 +346,7 @@
       food:
         maxVol: 6
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 4
         - ReagentId: Vitamin
           Quantity: 2
@@ -596,8 +596,10 @@
       food:
         maxVol: 14
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+        - ReagentId: Carbohydrate
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 5
         - ReagentId: Vitamin
           Quantity: 4
   - type: Sprite
@@ -628,7 +630,7 @@
       food:
         maxVol: 18
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
@@ -660,7 +662,7 @@
       food:
         maxVol: 9
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 4
@@ -794,7 +796,7 @@
         reagents:
         - ReagentId: Haloperidol
           Quantity: 5
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 4
@@ -835,7 +837,7 @@
       food:
         maxVol: 16
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 2
@@ -873,7 +875,7 @@
       food:
         maxVol: 14
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
@@ -912,7 +914,7 @@
       food:
         maxVol: 14
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 7
         - ReagentId: Vitamin
           Quantity: 3
@@ -971,7 +973,7 @@
       food:
         maxVol: 24
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 5
         - ReagentId: SpaceLube
           Quantity: 15
@@ -1075,7 +1077,7 @@
       food:
         maxVol: 14
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
@@ -1104,7 +1106,7 @@
       food:
         maxVol: 14
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
@@ -1142,7 +1144,7 @@
       food:
         maxVol: 30
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
@@ -1183,7 +1185,7 @@
       food:
         maxVol: 14
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
@@ -1225,7 +1227,7 @@
         reagents:
         - ReagentId: Cornmeal
           Quantity: 15
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 5
   - type: Tag
     tags:
@@ -1285,7 +1287,7 @@
       food:
         maxVol: 18
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
@@ -1318,7 +1320,7 @@
       food:
         maxVol: 18
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
@@ -1347,7 +1349,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Protein
           Quantity: 5
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/chanterelle.rsi
@@ -1372,7 +1374,7 @@
       food:
         maxVol: 3
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 2
   - type: Sprite
     state: slice
@@ -1423,7 +1425,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 2
         - ReagentId: Allicin
           Quantity: 1
@@ -1454,7 +1456,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 2
         - ReagentId: Allicin
           Quantity: 1
@@ -1483,7 +1485,7 @@
       food:
         maxVol: 18
         reagents:
-          - ReagentId: Nutriment
+          - ReagentId: Carbohydrate
             Quantity: 4
           - ReagentId: CapsaicinOil
             Quantity: 10
@@ -1519,7 +1521,7 @@
       food:
         maxVol: 18
         reagents:
-          - ReagentId: Nutriment
+          - ReagentId: Carbohydrate
             Quantity: 4
           - ReagentId: FrostOil
             Quantity: 10
@@ -1589,7 +1591,7 @@
       food:
         maxVol: 22
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fiber
           Quantity: 2
         - ReagentId: Bicaridine
           Quantity: 20
@@ -1621,7 +1623,7 @@
       food:
         maxVol: 22
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fiber
           Quantity: 2
         - ReagentId: Bicaridine
           Quantity: 20
@@ -1693,7 +1695,7 @@
           Quantity: 5
         - ReagentId: Kelotane
           Quantity: 5
-        - ReagentId: Nutriment
+        - ReagentId: Fiber
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 2
@@ -1736,7 +1738,7 @@
           Quantity: 3
         - ReagentId: SpaceDrugs
           Quantity: 5
-        - ReagentId: Nutriment
+        - ReagentId: Fiber
           Quantity: 2
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/ambrosia_deus.rsi
@@ -1877,7 +1879,7 @@
         reagents:
         - ReagentId: Amatoxin
           Quantity: 10
-        - ReagentId: Nutriment
+        - ReagentId: Protein
           Quantity: 5
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/fly_amanita.rsi
@@ -1910,7 +1912,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Sulfur
           Quantity: 5
@@ -1947,7 +1949,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Sulfur
           Quantity: 5
@@ -2020,8 +2022,10 @@
       food:
         maxVol: 4
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: Carbohydrate
+          Quantity: 2
   - type: Produce
     seedId: soybeans
   - type: Extractable
@@ -2055,7 +2059,7 @@
       food:
         maxVol: 4
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fiber
           Quantity: 1
         - ReagentId: PolypyryliumOligomers
           Quantity: 3
@@ -2084,8 +2088,10 @@
       food:
         maxVol: 7
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: Carbohydrate
+          Quantity: 2
         - ReagentId: CarpoToxin
           Quantity: 2
   - type: Produce
@@ -2120,7 +2126,7 @@
       food:
         maxVol: 25
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 5
@@ -2184,7 +2190,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
@@ -2223,7 +2229,7 @@
       food:
         maxVol: 25
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 5
@@ -2288,7 +2294,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
@@ -2323,7 +2329,7 @@
       food:
         maxVol: 9
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 4
@@ -2356,7 +2362,7 @@
       food:
         maxVol: 11
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 4
@@ -2400,7 +2406,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 10
         - ReagentId: Enzyme
           Quantity: 10
@@ -2438,7 +2444,7 @@
       food:
         maxVol: 7
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fiber
           Quantity: 2
         - ReagentId: Bungotoxin
           Quantity: 5
@@ -2463,7 +2469,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 3
         - ReagentId: Vitamin
           Quantity: 2
@@ -2497,7 +2503,7 @@
         reagents:
         - ReagentId: Happiness
           Quantity: 3
-        - ReagentId: Nutriment
+        - ReagentId: Carbohydrate
           Quantity: 3
         - ReagentId: Pax
           Quantity: 2
@@ -2705,7 +2711,7 @@
       food:
         maxVol: 8
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 3
         - ReagentId: Vitamin
           Quantity: 3
@@ -2780,7 +2786,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 2

@@ -17,10 +17,8 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
         - ReagentId: UncookedAnimalProteins
-          Quantity: 1
+          Quantity: 5
         - ReagentId: Fat
           Quantity: 5
   - type: Item
@@ -981,7 +979,7 @@
         reagents:
         - ReagentId: Omnizine
           Quantity: 30
-        - ReagentId: Nutriment
+        - ReagentId: Sugar
           Quantity: 10
         - ReagentId: Iron
           Quantity: 10
@@ -1009,10 +1007,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Protein
+        - ReagentId: Fat
           Quantity: 5
+        - ReagentId: Protein
+          Quantity: 10
   - type: SliceableFood
     count: 3
     slice: FoodMeatCutletCooked
@@ -1054,8 +1052,8 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 10
         - ReagentId: Protein
           Quantity: 5
   - type: Construction
@@ -1093,10 +1091,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 10
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: SliceableFood
     count: 3
     slice: FoodMeatBearCutletCooked
@@ -1128,10 +1126,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 5
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: SliceableFood
     count: 3
     slice: FoodMeatPenguinCutletCooked
@@ -1169,10 +1167,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 5
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: SliceableFood
     count: 3
     slice: FoodMeatChickenCutletCooked
@@ -1216,10 +1214,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 5
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: FoodSequenceElement
     entries:
       Burger: MeatChicken
@@ -1267,10 +1265,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 7.5
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 7.5
   - type: SliceableFood
     count: 3
     slice: FoodMeatDuckCutletCooked
@@ -1311,10 +1309,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 5
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: Construction
     graph: CrabSteak
     node: cooked crab
@@ -1348,10 +1346,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 10
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: Construction
     graph: GoliathSteak
     node: goliath steak
@@ -1389,7 +1387,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 10
         - ReagentId: Protein
           Quantity: 10
@@ -1425,10 +1423,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 5
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: SliceableFood
     count: 3
     slice: FoodMeatLizardCutletCooked
@@ -1464,10 +1462,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 5
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: FoodSequenceElement
     entries:
       Burger: MeatSpiderBurger
@@ -1498,10 +1496,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 5
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: FoodSequenceElement
     entries:
       Burger: MeatBall
@@ -1533,7 +1531,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 7.5
         - ReagentId: Protein
           Quantity: 7.5
@@ -1568,7 +1566,7 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 3
         - ReagentId: Protein
           Quantity: 3
@@ -1605,9 +1603,9 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 100
         - ReagentId: Protein
+          Quantity: 100
+        - ReagentId: Fat
           Quantity: 50
   - type: SliceableFood
     count: 10
@@ -1646,7 +1644,7 @@
         reagents:
         - ReagentId: Ichor
           Quantity: 6
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 6
         - ReagentId: Protein
           Quantity: 6
@@ -2017,7 +2015,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 1
         - ReagentId: Protein
           Quantity: 1
@@ -2079,10 +2077,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 2
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 4
   - type: Construction
     graph: Cutlet
     node: cutlet
@@ -2123,10 +2121,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
+        - ReagentId: Fat
+          Quantity: 4
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 4
   - type: Construction
     graph: BearCutlet
     node: bear cutlet
@@ -2165,10 +2163,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 2
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 3
   - type: Construction
     graph: PenguinCutlet
     node: penguin cutlet
@@ -2207,10 +2205,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 2
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 3
   - type: Construction
     graph: ChickenCutlet
     node: chicken cutlet
@@ -2249,10 +2247,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 2
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 3
   - type: Construction
     graph: DuckCutlet
     node: duck cutlet
@@ -2292,10 +2290,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Fat
           Quantity: 2
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 3
   - type: Construction
     graph: LizardCutlet
     node: lizard cutlet
@@ -2333,10 +2331,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
+        - ReagentId: Fat
+          Quantity: 2
         - ReagentId: Protein
-          Quantity: 1
+          Quantity: 3
   - type: Construction
     graph: SpiderCutlet
     node: spider cutlet
@@ -2374,10 +2372,10 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
+        - ReagentId: Fat
+          Quantity: 2
         - ReagentId: Protein
-          Quantity: 1
+          Quantity: 3
   - type: Construction
     graph: XenoCutlet
     node: xeno cutlet
@@ -2417,10 +2415,10 @@
         reagents:
         - ReagentId: Ichor
           Quantity: 2
-        - ReagentId: Nutriment
-          Quantity: 2
+        - ReagentId: Fat
+          Quantity: 3
         - ReagentId: Protein
-          Quantity: 2
+          Quantity: 3
   - type: Construction
     graph: DragonCutlet
     node: dragon cutlet
