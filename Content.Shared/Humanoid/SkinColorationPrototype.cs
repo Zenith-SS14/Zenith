@@ -1,6 +1,5 @@
-using System;
+using System.Linq;
 using System.Numerics;
-using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -300,6 +299,148 @@ public sealed partial class ClampedHslColoration : ISkinColorationStrategy
 
         return Color.FromHsl(hsl);
     }
+}
+
+/// <summary>
+/// Coloration strategy that clamps the color between nodes within the HSV colorspace.
+/// Clamped values depend on the nodes and are linearly interpolated between them.
+/// </summary>
+/// <remarks>
+/// For example:
+/// A node at hue 0 with a saturation of [0,1] and a node at hue 1 with a staturation of [0.1,0.8]
+/// At hue 0.5, the saturation would be clamped within [0.05,0.9]
+/// </remarks>
+[DataDefinition]
+[Serializable, NetSerializable]
+public sealed partial class HueNodeClampedHsvColoration : ISkinColorationStrategy
+{
+    /// <summary>
+    /// List of valid nodes in this coloration.
+    /// </summary>
+    [DataField]
+    public List<HueNodeClampedHsvColorationNode>? Nodes;
+
+    public SkinColorationStrategyInput InputType => SkinColorationStrategyInput.Color;
+
+    public bool VerifySkinColor(Color color)
+    {
+        var hsv =  Color.ToHsv(color);
+        var range = GetNodeValuesForHue(hsv.X);
+
+        // If no range was found, this color is invalid.
+        if (range == null)
+            return false;
+
+        // If a range is found, check if the saturation is within the provided ranges.
+        if (hsv.Y < range.Saturation.Item1 || hsv.Y > range.Saturation.Item2)
+            return false;
+
+        // Check if the value is within provided ranges.
+        if (hsv.Z < range.Value.Item1 || hsv.Y > range.Value.Item2)
+            return false;
+
+        return true;
+    }
+
+    public Color ClosestSkinColor(Color color)
+    {
+        if (Nodes is null)
+            return color;
+
+        var hsv = Color.ToHsv(color);
+        var range = GetNodeValuesForHue(hsv.X);
+        if (range == null)
+            return color;
+
+        hsv.Y = Math.Clamp(hsv.Y, range.Saturation.Item1, range.Saturation.Item2);
+        hsv.Z = Math.Clamp(hsv.Z, range.Value.Item1, range.Value.Item2);
+
+        return Color.FromHsv(hsv);
+    }
+
+    private (HueNodeClampedHsvColorationNode, HueNodeClampedHsvColorationNode)? GetAffectingNodes(float hue)
+    {
+        if (Nodes is null || Nodes.Count == 0)
+            return null;
+
+        // If only one node is provided we just consider it to control all values.
+        if (Nodes.Count == 1)
+            return (Nodes.First(), Nodes.Last());
+
+        for (int i = 0; i < Nodes.Count; i++)
+        {
+            // We get the currently iterated element. If for WHATEVER reason it doesn't exist, we fall back to the first element.
+            // There has to be at least one element here because we check the count above.
+            var current = Nodes.ElementAtOrDefault(i) ?? Nodes.First();
+
+            // If there is no element after this one, we just get the last element and give it full control of the color.
+            // Basically a node list of [0, 0.5] will fall back to node at 0.5 if the hue is ever higher.
+            // This could just set the next to current as well, but I don't think there is any differance.
+            var next = Nodes.ElementAtOrDefault(i+1) ?? Nodes.Last();
+
+            // Is the hue within the range of the nodes we're considering?
+            if (current.Hue > hue || next.Hue < hue)
+                continue;
+
+            return  (current, next);
+        }
+
+        return null;
+    }
+
+    private HueNodeClampedHsvColorationNode? GetNodeValuesForHue(float hue)
+    {
+        if (Nodes is null || Nodes.Count == 0)
+            return null;
+
+        // No node is actually affecting this coloring, so it's invalid.
+        if (GetAffectingNodes(hue) is not { } affectingNodes)
+            return null;
+
+        var firstNode = affectingNodes.Item1;
+        var secondNode = affectingNodes.Item2;
+
+        // If both values are equal we just return 0f.
+        // This is to prevent dividing by 0.
+        var weight = MathHelper.CloseTo(firstNode.Hue, secondNode.Hue) ? 0f : (hue - firstNode.Hue)/(secondNode.Hue - firstNode.Hue);
+
+        // I know this is also used to define the nodes, however it contains all the data necessary
+        // And I don't think creating a new DataDefinition is worth it just to get rid of the hue from this one.
+        var finalNode = new HueNodeClampedHsvColorationNode();
+        finalNode.Hue = hue;
+
+        finalNode.Saturation.Item1 = MathHelper.Lerp(firstNode.Saturation.Item1, secondNode.Saturation.Item1, weight);
+        finalNode.Saturation.Item2 = MathHelper.Lerp(firstNode.Saturation.Item2, secondNode.Saturation.Item2, weight);
+
+        finalNode.Value.Item1 = MathHelper.Lerp(firstNode.Value.Item1, secondNode.Value.Item1, weight);
+        finalNode.Value.Item2 = MathHelper.Lerp(firstNode.Value.Item2, secondNode.Value.Item2, weight);
+
+        return finalNode;
+    }
+}
+
+[DataDefinition]
+[Serializable, NetSerializable]
+public sealed partial class HueNodeClampedHsvColorationNode
+{
+    /// <summary>
+    /// The point on the hue spectrum where this node is placed.
+    /// 0 is 0, 1 is 360
+    /// </summary>
+    [DataField]
+    public float Hue;
+
+    /// <summary>
+    /// Defines the (min, max) saturation on the provided node.
+    /// </summary>
+    [DataField]
+    public (float, float) Saturation;
+
+    /// <summary>
+    /// Defines the (min, max) value on the provided node.
+    /// </summary>
+    [DataField]
+    public (float, float) Value;
 }
 
 /// <summary>
