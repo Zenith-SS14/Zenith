@@ -65,5 +65,32 @@
                             Text="{controls:Loc 'shuttle-console-dock-toggle'}"
                             TextAlign="Center"
                             ToggleMode="True"/>
+
+
+                                        <!-- Zenith's inertia dampener controls-->
+                    <controls:BoxContainer Name="ModeButtons"
+                                  Orientation="Horizontal"
+                                  HorizontalAlignment="Stretch"
+                                  Margin="5">
+                        <controls:Button Name="DampenerOff"
+                                         Text="{controls:Loc 'shuttle-console-inertia-dampener-off'}"
+                                         TextAlign="Center"
+                                         ToggleMode="True"
+                                         MinWidth="82"
+                                         MaxWidth="82"/>
+                        <controls:Button Name="DampenerOn"
+                                         Text="{controls:Loc 'shuttle-console-inertia-dampener-dampen'}"
+                                         TextAlign="Center"
+                                         ToggleMode="True"
+                                         MinWidth="82"
+                                         MaxWidth="82"/>
+                        <controls:Button Name="AnchorOn"
+                                         Text="{controls:Loc 'shuttle-console-inertia-dampener-anchored'}"
+                                         TextAlign="Center"
+                                         ToggleMode="True"
+                                         MinWidth="82"
+                                         MaxWidth="82"/>
+                    </controls:BoxContainer>
+                    <!--end Zenith's inertia dampener controls-->
                 </controls:BoxContainer>
             </controls:BoxContainer>

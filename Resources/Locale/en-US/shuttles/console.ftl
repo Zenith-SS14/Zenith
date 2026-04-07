@@ -18,6 +18,11 @@ shuttle-console-linear-velocity-value = {$X}, {$Y}
 shuttle-console-angular-velocity = Angular velocity:
 shuttle-console-angular-velocity-value = {$angularVelocity}
 
+
+shuttle-console-inertia-dampener-off = Cruise
+shuttle-console-inertia-dampener-dampen = Dampen
+shuttle-console-inertia-dampener-anchored = Anchor
+
 shuttle-console-unknown = Unknown
 shuttle-console-iff-label = {$name} ({$distance}m)
 shuttle-console-exclusion = Exclusion area

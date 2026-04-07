@@ -29,6 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Maps;
+using Content.Shared._Zenith.Events;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -88,6 +89,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         SubscribeLocalEvent<ShuttleComponent, TileFrictionEvent>(OnTileFriction);
         SubscribeLocalEvent<ShuttleComponent, FTLStartedEvent>(OnFTLStarted);
         SubscribeLocalEvent<ShuttleComponent, FTLCompletedEvent>(OnFTLCompleted);
+        SubscribeLocalEvent<ShuttleConsoleComponent, ToggleStabilizerRequest>(OnToggleStabilizer);
 
         SubscribeLocalEvent<GridInitializeEvent>(OnGridInit);
     }
