@@ -1,7 +1,7 @@
 using Robust.Client.Graphics;
 
 namespace Content.Client.Shuttles.Systems;
-using Robust.Shared.Physics;
+
 public sealed partial class ShuttleSystem
 {
     [Dependency] private readonly IOverlayManager _overlays = default!;
