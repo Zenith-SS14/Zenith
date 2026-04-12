@@ -4,6 +4,7 @@ using Content.Shared.Shuttles.Events;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Shared.Map;
+using Content.Shared._Zenith.Events;
 
 namespace Content.Client.Shuttles.BUI;
 
@@ -26,6 +27,7 @@ public sealed class ShuttleConsoleBoundUserInterface : BoundUserInterface
         _window.RequestBeaconFTL += OnFTLBeaconRequest;
         _window.DockRequest += OnDockRequest;
         _window.UndockRequest += OnUndockRequest;
+        _window.ChangeInertialDampening += OnChangeInertialDampening;
     }
 
     private void OnUndockRequest(NetEntity entity)
@@ -60,6 +62,14 @@ public sealed class ShuttleConsoleBoundUserInterface : BoundUserInterface
         {
             Coordinates = obj,
             Angle = angle,
+        });
+    }
+
+    private void OnChangeInertialDampening(InertiaDampeningState mode)
+    {
+        SendMessage(new ToggleStabilizerRequest
+        {
+            Mode = mode,
         });
     }
 

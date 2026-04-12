@@ -6,6 +6,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
+using Content.Shared._Zenith.Events;
 
 namespace Content.Client.Shuttles.UI;
 
@@ -29,6 +30,13 @@ public sealed partial class NavScreen : BoxContainer
 
         DockToggle.OnToggled += OnDockTogglePressed;
         DockToggle.Pressed = NavRadar.ShowDocks;
+        var stabilizerGroup = new ButtonGroup();
+        DampenerOff.Group = stabilizerGroup;
+        DampenerOn.Group = stabilizerGroup;
+        AnchorOn.Group = stabilizerGroup;
+        DampenerOff.OnPressed += _ => ChangeInertialDampening?.Invoke(InertiaDampeningState.Off);
+        DampenerOn.OnPressed += _ => ChangeInertialDampening?.Invoke(InertiaDampeningState.Dampen);
+        AnchorOn.OnPressed += _ => ChangeInertialDampening?.Invoke(InertiaDampeningState.Anchored);
     }
 
     public void SetShuttle(EntityUid? shuttle)
@@ -95,5 +103,9 @@ public sealed partial class NavScreen : BoxContainer
             ("Y", $"{gridVelocity.Y + 10f * float.Epsilon:0.0}"));
         GridAngularVelocity.Text = Loc.GetString("shuttle-console-angular-velocity-value",
             ("angularVelocity", $"{-MathHelper.RadiansToDegrees(gridBody.AngularVelocity) + 10f * float.Epsilon:0.0}"));
+
     }
+
+    public event Action<InertiaDampeningState>? ChangeInertialDampening;
+
 }
